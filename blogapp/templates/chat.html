@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat en temps réel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        #chat-box {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+            margin-bottom: 15px;
+        }
+        #message-input {
+            width: 80%;
+            padding: 10px;
+        }
+        #send-btn {
+            padding: 10px 20px;
+            background: #0078ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #send-btn:hover {
+            background: #005fcc;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Chat en temps réel</h2>
+
+    <label>Nom de la room :</label>
+    <input type="text" id="room-name" value="testroom">
+    <button onclick="connectWebSocket()">Se connecter</button>
+
+    <div id="chat-box"></div>
+
+    <input type="text" id="message-input" placeholder="Écris ton message...">
+    <button id="send-btn" onclick="sendMessage()">Envoyer</button>
+
+    <script>
+        let socket = null;
+
+        function connectWebSocket() {
+            const room = document.getElementById("room-name").value;
+
+            socket = new WebSocket(`ws://localhost:8000/ws/chat/${room}/`);
+
+            socket.onopen = () => {
+                addMessage("📡 Connecté au serveur WebSocket");
+            };
+
+            socket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                addMessage(`<b>${data.username} :</b> ${data.message}`);
+            };
+
+            socket.onclose = () => {
+                addMessage("❌ Déconnecté du serveur");
+            };
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("message-input");
+            const message = input.value;
+
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({ message: message }));
+                input.value = "";
+            }
+        }
+
+        function addMessage(msg) {
+            const box = document.getElementById("chat-box");
+            box.innerHTML += msg + "<br>";
+            box.scrollTop = box.scrollHeight;
+        }
+    </script>
+
+</body>
+</html>
