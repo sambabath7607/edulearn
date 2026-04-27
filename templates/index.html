@@ -1,10 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn - Site Éducatif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            border: none;
+            background: white;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .courses {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .courses h2 {
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+    <header>
+        <h1>EduLearn</h1>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#">Cours</a>
+            <a href="#">Formations</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Bienvenue sur EduLearn</h2>
+        <p>Apprenez facilement avec nos cours modernes et interactifs.</p>
+        <button>Commencer Maintenant</button>
+    </section>
+
+    <section class="courses">
+        <h2>Nos Formations</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Développement Web</h3>
+                <p>HTML, CSS, JavaScript, Django et plus encore.</p>
+            </div>
+
+            <div class="card">
+                <h3>Python</h3>
+                <p>Apprenez la programmation Python de zéro à avancé.</p>
+            </div>
+
+            <div class="card">
+                <h3>Base de Données</h3>
+                <p>MySQL, PostgreSQL et gestion professionnelle des données.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 EduLearn - Tous droits réservés</p>
+    </footer>
+
 </body>
 </html>
