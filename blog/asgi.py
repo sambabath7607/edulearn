@@ -1,10 +1,5 @@
 """
 ASGI config for blog project.
-
-It exposes the ASGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/6.0/howto/deployment/asgi/
 """
 
 import os
@@ -13,7 +8,7 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 import messaging.routing
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eduplatform.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog.settings')
 
 django_asgi_app = get_asgi_application()
 
@@ -25,4 +20,3 @@ application = ProtocolTypeRouter({
         )
     ),
 })
-
