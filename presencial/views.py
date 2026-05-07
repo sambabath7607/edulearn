@@ -43,3 +43,7 @@ class BookingCreateView(APIView):
 
         serializer = BookingSerializer(booking)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+def presencial_home(request):
+    return render(request, "presencial/index.html")

@@ -32,3 +32,7 @@ class ProfileView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
+
+
+def users_home(request):
+    return render(request, "users/index.html")

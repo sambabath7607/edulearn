@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduLearn</title>
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#333;
+    line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+    background:#1e293b;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    color:white;
+    background:linear-gradient(135deg,#2563eb,#10b981);
+}
+
+.hero h2{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    max-width:700px;
+    margin-bottom:30px;
+}
+
+.hero button{
+    padding:15px 35px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.05);
+}
+
+
+/* COURSES */
+
+.courses{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:36px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#1e293b;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .hero h2{
+        font-size:35px;
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+    <div class="logo">EduLearn</div>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/api/users/">Utilisateurs</a>
+        <a href="/api/courses/">Éducation</a>
+        <a href="/api/presencial/">Présentiel</a>
+        <a href="/api/payments/">Paiements</a>
+        <a href="/api/messaging/">Messagerie</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <h2>Bienvenue sur EduLearn</h2>
+<div class="container py-4">
+    {% block content %}{% endblock %}
+</div>
+    <p>
+        Apprenez facilement avec nos cours modernes,
+        interactifs et adaptés au monde professionnel.
+    </p>
+
+    <button>Commencer</button>
+
+</section>
+
+
+<section class="courses">
+
+    <h2 class="section-title">Nos Formations</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Développement Web</h3>
+            <p>HTML, CSS, JavaScript, Django et plus.</p>
+        </div>
+
+        <div class="card">
+            <h3>Python</h3>
+            <p>De débutant à avancé.</p>
+        </div>
+
+        <div class="card">
+            <h3>Base de Données</h3>
+            <p>MySQL et PostgreSQL.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 EduLearn - Tous droits réservés
+</footer>
+
+</body>
+</html>
+
+

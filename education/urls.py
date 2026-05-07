@@ -6,6 +6,9 @@ from .views import (
     LessonListCreateView, EnrollCourseView
 )
 from .views import MarkLessonCompleteView, CourseProgressView
+
+
+from .views import education_home
 urlpatterns = [
     path('', CourseListView.as_view()),
     path('<int:pk>/', CourseDetailView.as_view()),
@@ -16,10 +19,16 @@ urlpatterns = [
     path('<int:course_id>/lessons/', LessonListCreateView.as_view()),
     path('<int:course_id>/enroll/', EnrollCourseView.as_view()),
 
+
+
 ]
 
 
 urlpatterns += [
     path('lessons/<int:lesson_id>/complete/', MarkLessonCompleteView.as_view()),
     path('<int:course_id>/progress/', CourseProgressView.as_view()),
+    path("", education_home, name="education_home"),
+
+
+
 ]

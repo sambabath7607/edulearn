@@ -122,3 +122,9 @@ class CourseProgressView(APIView):
             "completed_lessons": completed,
             "progress": progress_percent
         })
+
+
+
+
+def education_home(request):
+    return render(request, "education/index.html")

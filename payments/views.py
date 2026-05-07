@@ -74,3 +74,7 @@ def stripe_webhook(request):
             transaction.save()
 
     return HttpResponse(status=200)
+
+
+def payments_home(request):
+    return render(request, "payments/index.html")
